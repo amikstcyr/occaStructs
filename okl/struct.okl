@@ -1,7 +1,9 @@
 
 #include "include/struct.h"
 
-@kernel void structKernel(int N, struct_t *q){
+#define ulli_t unsigned long long int
+
+@kernel void structKernel(int N, struct_t *q, double *data){
 
   for(int b=0;b<(N+p_B-1)/p_B;++b;@outer(0)){
     for(int t=0;t<p_B;++t;@inner(0)){
@@ -10,6 +12,9 @@
 	q[n].t = t;
 	q[n].b = b;
 	q[n].val = n;
+	
+	q[n].ans = 999 + (q[n].pt - (data+n));
+	q[n].pt = data+n;
       }
     }
   }

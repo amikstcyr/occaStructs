@@ -7,7 +7,9 @@ struct foo {
   int t,b;
   double val;
 
+  double *pt;
 
+  unsigned long long int ans;
 };
 
 typedef foo struct_t;
