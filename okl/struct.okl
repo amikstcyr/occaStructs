@@ -14,7 +14,8 @@
 	q[n].val = n;
 	
 	q[n].ans = 999 + (q[n].pt - (data+n));
-	q[n].pt = data+n;
+//	q[n].pt = data+n;
+	q[n].pt[0] = 7.2;
       }
     }
   }

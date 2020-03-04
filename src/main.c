@@ -54,9 +54,11 @@ int main(int argc, char **argv){
   occaKernelRun(structKernel, occaInt(N), o_q, o_data);
 
   occaCopyMemToPtr(q, o_q, occaAllBytes, 0, occaDefault);
+  occaCopyMemToPtr(data, o_data, occaAllBytes, 0, occaDefault);
 
   for(int n=0;n<N;++n){
-    printf("t=%d, b=%d, val=%f, ans=%llu, pt-(data+n)=%p\n", q[n].t, q[n].b, q[n].val, q[n].ans, (double*) (q[n].pt-(dataptr+n)));
+    printf("t=%d, b=%d, val=%f, ans=%llu, pt-(data+n)=%p, q[n].pt[0] = %lf\n",
+	   q[n].t, q[n].b, q[n].val, q[n].ans, (double*) (q[n].pt-(dataptr+n)), data[n]);
   }
   
   return 0;
