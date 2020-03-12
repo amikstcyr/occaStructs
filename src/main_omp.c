@@ -17,7 +17,7 @@ int main(int argc, char **argv){
   // configure OCCA device
   char *occaConfig = (char*) calloc(BUFSIZ, sizeof(char));
   
-  sprintf(occaConfig, "mode: OpenMP");
+  sprintf(occaConfig, "mode: 'OpenMP'");
   
   printf("Configuring OCCA with: %s\n", occaConfig);
   
