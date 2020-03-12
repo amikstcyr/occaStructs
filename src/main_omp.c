@@ -31,6 +31,10 @@ int main(int argc, char **argv){
 
   double *q = (double*) calloc(N,sizeof(double));
   double *Aq = (double*) calloc(N,sizeof(double));
+
+  for(int n=0;n<N;++n)
+    q[n] = 1.2;
+  
   occaMemory o_q = occaDeviceMalloc(device, sz, q, occaDefault);
   occaMemory o_Aq = occaDeviceMalloc(device, sz, Aq, occaDefault);
   

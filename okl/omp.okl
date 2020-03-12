@@ -5,8 +5,16 @@
 
 @kernel void ompKernel(int N, double *q, double *Aq){
 
-  for(int n=0;n<N;++n){
-    Aq[n] = 1.2*q[n];
-  }
+  // dummy outer loop
+  for(int b=0;b<1;++b;@outer){
+    // dummy inner loop
+    for(int t=0;t<1;++t;@inner){
 
+      // actual code
+      for(int n=0;n<N;++n){
+	Aq[n] = 1.2*q[n];
+      }
+
+    }
+  }
 }
