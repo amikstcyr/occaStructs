@@ -62,6 +62,10 @@ LOBJS =
 main: $(LOBJS) ./src/main.o
 	$(LD)  $(LDFLAGS)  -o main ./src/main.o $(LOBJS) $(paths) $(LIBS)
 
+main_omp: $(LOBJS) ./src/main_omp.o
+	$(LD)  $(LDFLAGS)  -o main_omp ./src/main_omp.o $(LOBJS) $(paths) $(LIBS)
+
+
 all: main 
 
 # what to do if user types "make clean"

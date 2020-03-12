@@ -1,0 +1,12 @@
+
+#include "include/struct.h"
+
+#define ulli_t unsigned long long int
+
+@kernel void ompKernel(int N, double *q, double *Aq){
+
+  for(int n=0;n<N;++n){
+    Aq[n] = 1.2*q[n];
+  }
+
+}
