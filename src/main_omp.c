@@ -27,14 +27,14 @@ int main(int argc, char **argv){
   occaPropertiesSet(props, "defines/p_B", occaInt(16));
 
   int N = atoi(argv[1]);
-  size_t sz = N*sizeof(struct_t);
+  size_t sz = N*sizeof(double);
 
   double *q = (double*) calloc(N,sizeof(double));
   double *Aq = (double*) calloc(N,sizeof(double));
   occaMemory o_q = occaDeviceMalloc(device, sz, q, occaDefault);
   occaMemory o_Aq = occaDeviceMalloc(device, sz, Aq, occaDefault);
   
-  occaKernel structKernel = occaDeviceBuildKernel(device, DFUN "/okl/struct.okl", "structKernel", props);
+  occaKernel ompKernel = occaDeviceBuildKernel(device, DFUN "/okl/omp.okl", "ompKernel", props);
   
   occaKernelRun(ompKernel, occaInt(N), o_q, o_Aq);
 
